@@ -9,8 +9,8 @@ For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef GamePadPlugin_726381382_h
-#define GamePadPlugin_726381382_h
+#ifndef GamePadPlugin_726381412_h
+#define GamePadPlugin_726381412_h
 
 #include "GamePad.h"
 
@@ -271,5 +271,5 @@ extern "C" {
 #define NDDSUSERDllExport
 #endif
 
-#endif /* GamePadPlugin_726381382_h */
+#endif /* GamePadPlugin_726381412_h */
 

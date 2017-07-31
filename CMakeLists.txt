@@ -23,7 +23,7 @@ execute_process(COMMAND /opt/rti/bin/rtiddsgen -d ${CMAKE_SOURCE_DIR}/src/genera
 include_directories(${NDDS_INCLUDE_DIRS} ${NDDS_INCLUDE_DIRS}/ndds "src" "src/generated")
 set(LIBS ${LIBS} ${NDDS_LIBRARIES})
 
-add_executable(GAMEPAD ${GAMEPAD_SOURCES})
-target_link_libraries(GAMEPAD
+add_executable(${PROJECT_NAME} ${GAMEPAD_SOURCES})
+target_link_libraries(${PROJECT_NAME}
     ${NDDS_LIBRARIES} -lnddscore -lnddscppd -lnddscd -lnddscored -ldl -lnsl -lm -lpthread -lrt
 )

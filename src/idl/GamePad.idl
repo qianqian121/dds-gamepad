@@ -6,6 +6,8 @@
 /*                                                                           */
 /*****************************************************************************/
 
+#define NDDS_STANDALONE_TYPE
+
 /* The following constants will be available in the generated code as macros.
  * If you use #define in an IDL file, the value will be substituite by a
  * preprocessor before generating the code (this constant won't be available

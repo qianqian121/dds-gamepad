@@ -8,8 +8,8 @@ For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef GamePadSupport_726381382_h
-#define GamePadSupport_726381382_h
+#ifndef GamePadSupport_726381412_h
+#define GamePadSupport_726381412_h
 
 /* Uses */
 #include "GamePad.h"
@@ -56,5 +56,5 @@ DDS_DATAREADER_CPP(TwistCommandsDataReader, TwistCommandsSeq, TwistCommands);
 #define NDDSUSERDllExport
 #endif
 
-#endif  /* GamePadSupport_726381382_h */
+#endif  /* GamePadSupport_726381412_h */
 

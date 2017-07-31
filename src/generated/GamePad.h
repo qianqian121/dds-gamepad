@@ -9,8 +9,8 @@ For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef GamePad_726381382_h
-#define GamePad_726381382_h
+#ifndef GamePad_726381412_h
+#define GamePad_726381412_h
 
 #ifndef NDDS_STANDALONE_TYPE
 #ifndef ndds_cpp_h
