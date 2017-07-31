@@ -3,14 +3,14 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from HelloWorld.idl using "rtiddsgen".
+This file was generated from GamePad.idl using "rtiddsgen".
 The rtiddsgen tool is part of the RTI Connext distribution.
 For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef HelloWorld_1436886690_h
-#define HelloWorld_1436886690_h
+#ifndef GamePad_726381382_h
+#define GamePad_726381382_h
 
 #ifndef NDDS_STANDALONE_TYPE
 #ifndef ndds_cpp_h
@@ -24,25 +24,25 @@ static const DDS_Long HELLODDS_MAX_PAYLOAD_SIZE= 8192;
 static const DDS_Long HELLODDS_MAX_STRING_SIZE= 64;
 extern "C" {
 
-    extern const char *HelloWorldTYPENAME;
+    extern const char *TwistCommandsTYPENAME;
 
 }
 
-struct HelloWorldSeq;
+struct TwistCommandsSeq;
 #ifndef NDDS_STANDALONE_TYPE
-class HelloWorldTypeSupport;
-class HelloWorldDataWriter;
-class HelloWorldDataReader;
+class TwistCommandsTypeSupport;
+class TwistCommandsDataWriter;
+class TwistCommandsDataReader;
 #endif
 
-class HelloWorld 
+class TwistCommands 
 {
   public:
-    typedef struct HelloWorldSeq Seq;
+    typedef struct TwistCommandsSeq Seq;
     #ifndef NDDS_STANDALONE_TYPE
-    typedef HelloWorldTypeSupport TypeSupport;
-    typedef HelloWorldDataWriter DataWriter;
-    typedef HelloWorldDataReader DataReader;
+    typedef TwistCommandsTypeSupport TypeSupport;
+    typedef TwistCommandsDataWriter DataWriter;
+    typedef TwistCommandsDataReader DataReader;
     #endif
 
     DDS_Char *   prefix ;
@@ -57,44 +57,44 @@ class HelloWorld
 #define NDDSUSERDllExport __declspec(dllexport)
 #endif
 
-NDDSUSERDllExport DDS_TypeCode* HelloWorld_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode* TwistCommands_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(HelloWorldSeq, HelloWorld);                                        
-
-NDDSUSERDllExport
-RTIBool HelloWorld_initialize(
-    HelloWorld* self);
+DDS_SEQUENCE(TwistCommandsSeq, TwistCommands);                                        
 
 NDDSUSERDllExport
-RTIBool HelloWorld_initialize_ex(
-    HelloWorld* self,RTIBool allocatePointers,RTIBool allocateMemory);
+RTIBool TwistCommands_initialize(
+    TwistCommands* self);
 
 NDDSUSERDllExport
-RTIBool HelloWorld_initialize_w_params(
-    HelloWorld* self,
+RTIBool TwistCommands_initialize_ex(
+    TwistCommands* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool TwistCommands_initialize_w_params(
+    TwistCommands* self,
     const struct DDS_TypeAllocationParams_t * allocParams);        
 
 NDDSUSERDllExport
-void HelloWorld_finalize(
-    HelloWorld* self);
+void TwistCommands_finalize(
+    TwistCommands* self);
 
 NDDSUSERDllExport
-void HelloWorld_finalize_ex(
-    HelloWorld* self,RTIBool deletePointers);
+void TwistCommands_finalize_ex(
+    TwistCommands* self,RTIBool deletePointers);
 
 NDDSUSERDllExport
-void HelloWorld_finalize_w_params(
-    HelloWorld* self,
+void TwistCommands_finalize_w_params(
+    TwistCommands* self,
     const struct DDS_TypeDeallocationParams_t * deallocParams);
 
 NDDSUSERDllExport
-void HelloWorld_finalize_optional_members(
-    HelloWorld* self, RTIBool deletePointers);  
+void TwistCommands_finalize_optional_members(
+    TwistCommands* self, RTIBool deletePointers);  
 
 NDDSUSERDllExport
-RTIBool HelloWorld_copy(
-    HelloWorld* dst,
-    const HelloWorld* src);
+RTIBool TwistCommands_copy(
+    TwistCommands* dst,
+    const TwistCommands* src);
 
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, stop exporting symbols.
@@ -103,5 +103,5 @@ RTIBool HelloWorld_copy(
 #define NDDSUSERDllExport
 #endif
 
-#endif /* HelloWorld */
+#endif /* GamePad */
 

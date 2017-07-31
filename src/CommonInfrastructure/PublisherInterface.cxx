@@ -51,8 +51,9 @@ PublisherInterface::PublisherInterface(std::vector<std::string> xmlFiles)
 	// Topics, etc.  Note:  The string constants with the QoS library name and 
 	// the QoS profile name are configured as constants in the .idl file.  The
 	// profiles themselves are configured in the .xml file.
-	if (NULL == _communicator->CreateParticipant(0, xmlFiles, 
-				QOS_LIBRARY, QOS_PROFILE_FLIGHT_PLAN)) 
+//	if (NULL == _communicator->CreateParticipant(0, xmlFiles,
+//				QOS_LIBRARY, QOS_PROFILE_FLIGHT_PLAN))
+	if (NULL == _communicator->CreateParticipant())
 	{
 		std::stringstream errss;
 		errss << "Failed to create DomainParticipant object";
@@ -88,7 +89,7 @@ PublisherInterface::PublisherInterface(std::vector<std::string> xmlFiles)
 	// you define your topic name in IDL, but it is a best practice for
 	// ensuring the data interface of an application is all defined in one 
 	// place. You can register all topics and types up-front, if you nee
-	DDS::Topic *topic = _communicator->CreateTopic<>( 
+	DDS::Topic *topic = _communicator->CreateTopic<T>(
 		AIRCRAFT_FLIGHT_PLAN_TOPIC);
 
 

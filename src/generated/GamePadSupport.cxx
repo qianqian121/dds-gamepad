@@ -2,14 +2,14 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from HelloWorld.idl using "rtiddsgen".
+This file was generated from GamePad.idl using "rtiddsgen".
 The rtiddsgen tool is part of the RTI Connext distribution.
 For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#include "HelloWorldSupport.h"
-#include "HelloWorldPlugin.h"
+#include "GamePadSupport.h"
+#include "GamePadPlugin.h"
 
 #ifndef dds_c_log_impl_h              
 #include "dds_c/dds_c_log_impl.h"                                
@@ -24,7 +24,7 @@ TDataWriter,
 TDataReader,
 TTypeSupport
 
-Configure and implement 'HelloWorld' support classes.
+Configure and implement 'TwistCommands' support classes.
 
 Note: Only the #defined classes get defined
 */
@@ -40,11 +40,11 @@ Defines:   TDataWriter, TData
 */
 
 /* Requires */
-#define TTYPENAME   HelloWorldTYPENAME
+#define TTYPENAME   TwistCommandsTYPENAME
 
 /* Defines */
-#define TDataWriter HelloWorldDataWriter
-#define TData       HelloWorld
+#define TDataWriter TwistCommandsDataWriter
+#define TData       TwistCommands
 
 #include "dds_cpp/generic/dds_cpp_data_TDataWriter.gen"
 
@@ -64,12 +64,12 @@ Defines:   TDataReader, TDataSeq, TData
 */
 
 /* Requires */
-#define TTYPENAME   HelloWorldTYPENAME
+#define TTYPENAME   TwistCommandsTYPENAME
 
 /* Defines */
-#define TDataReader HelloWorldDataReader
-#define TDataSeq    HelloWorldSeq
-#define TData       HelloWorld
+#define TDataReader TwistCommandsDataReader
+#define TDataSeq    TwistCommandsSeq
+#define TData       TwistCommands
 
 #include "dds_cpp/generic/dds_cpp_data_TDataReader.gen"
 
@@ -91,15 +91,15 @@ Defines:   TTypeSupport, TData, TDataReader, TDataWriter
 */
 
 /* Requires */
-#define TTYPENAME    HelloWorldTYPENAME
-#define TPlugin_new  HelloWorldPlugin_new
-#define TPlugin_delete  HelloWorldPlugin_delete
+#define TTYPENAME    TwistCommandsTYPENAME
+#define TPlugin_new  TwistCommandsPlugin_new
+#define TPlugin_delete  TwistCommandsPlugin_delete
 
 /* Defines */
-#define TTypeSupport HelloWorldTypeSupport
-#define TData        HelloWorld
-#define TDataReader  HelloWorldDataReader
-#define TDataWriter  HelloWorldDataWriter
+#define TTypeSupport TwistCommandsTypeSupport
+#define TData        TwistCommands
+#define TDataReader  TwistCommandsDataReader
+#define TDataWriter  TwistCommandsDataWriter
 #define TGENERATE_SER_CODE
 #define TGENERATE_TYPECODE
 

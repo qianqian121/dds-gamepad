@@ -18,7 +18,7 @@ find_library(
 )
 
 execute_process(COMMAND mkdir -pv ${CMAKE_SOURCE_DIR}/src/generated)
-execute_process(COMMAND /opt/rti/bin/rtiddsgen -d ${CMAKE_SOURCE_DIR}/src/generated ${CMAKE_SOURCE_DIR}/src/GAMEPADWorld.idl -replace -language C++)
+execute_process(COMMAND /opt/rti/bin/rtiddsgen -d ${CMAKE_SOURCE_DIR}/src/generated ${CMAKE_SOURCE_DIR}/src/idl/GamePad.idl -replace -language C++)
 
 include_directories(${NDDS_INCLUDE_DIRS} ${NDDS_INCLUDE_DIRS}/ndds "src" "src/generated")
 set(LIBS ${LIBS} ${NDDS_LIBRARIES})

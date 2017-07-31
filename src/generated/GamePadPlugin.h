@@ -3,16 +3,16 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from HelloWorld.idl using "rtiddsgen".
+This file was generated from GamePad.idl using "rtiddsgen".
 The rtiddsgen tool is part of the RTI Connext distribution.
 For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef HelloWorldPlugin_1436886690_h
-#define HelloWorldPlugin_1436886690_h
+#ifndef GamePadPlugin_726381382_h
+#define GamePadPlugin_726381382_h
 
-#include "HelloWorld.h"
+#include "GamePad.h"
 
 struct RTICdrStream;
 
@@ -29,48 +29,48 @@ struct RTICdrStream;
 
 extern "C" {
 
-    #define HelloWorldPlugin_get_sample PRESTypePluginDefaultEndpointData_getSample 
-    #define HelloWorldPlugin_get_buffer PRESTypePluginDefaultEndpointData_getBuffer 
-    #define HelloWorldPlugin_return_buffer PRESTypePluginDefaultEndpointData_returnBuffer 
+    #define TwistCommandsPlugin_get_sample PRESTypePluginDefaultEndpointData_getSample 
+    #define TwistCommandsPlugin_get_buffer PRESTypePluginDefaultEndpointData_getBuffer 
+    #define TwistCommandsPlugin_return_buffer PRESTypePluginDefaultEndpointData_returnBuffer 
 
-    #define HelloWorldPlugin_create_sample PRESTypePluginDefaultEndpointData_createSample 
-    #define HelloWorldPlugin_destroy_sample PRESTypePluginDefaultEndpointData_deleteSample 
+    #define TwistCommandsPlugin_create_sample PRESTypePluginDefaultEndpointData_createSample 
+    #define TwistCommandsPlugin_destroy_sample PRESTypePluginDefaultEndpointData_deleteSample 
 
     /* --------------------------------------------------------------------------------------
     Support functions:
     * -------------------------------------------------------------------------------------- */
 
-    NDDSUSERDllExport extern HelloWorld*
-    HelloWorldPluginSupport_create_data_w_params(
+    NDDSUSERDllExport extern TwistCommands*
+    TwistCommandsPluginSupport_create_data_w_params(
         const struct DDS_TypeAllocationParams_t * alloc_params);
 
-    NDDSUSERDllExport extern HelloWorld*
-    HelloWorldPluginSupport_create_data_ex(RTIBool allocate_pointers);
+    NDDSUSERDllExport extern TwistCommands*
+    TwistCommandsPluginSupport_create_data_ex(RTIBool allocate_pointers);
 
-    NDDSUSERDllExport extern HelloWorld*
-    HelloWorldPluginSupport_create_data(void);
+    NDDSUSERDllExport extern TwistCommands*
+    TwistCommandsPluginSupport_create_data(void);
 
     NDDSUSERDllExport extern RTIBool 
-    HelloWorldPluginSupport_copy_data(
-        HelloWorld *out,
-        const HelloWorld *in);
+    TwistCommandsPluginSupport_copy_data(
+        TwistCommands *out,
+        const TwistCommands *in);
 
     NDDSUSERDllExport extern void 
-    HelloWorldPluginSupport_destroy_data_w_params(
-        HelloWorld *sample,
+    TwistCommandsPluginSupport_destroy_data_w_params(
+        TwistCommands *sample,
         const struct DDS_TypeDeallocationParams_t * dealloc_params);
 
     NDDSUSERDllExport extern void 
-    HelloWorldPluginSupport_destroy_data_ex(
-        HelloWorld *sample,RTIBool deallocate_pointers);
+    TwistCommandsPluginSupport_destroy_data_ex(
+        TwistCommands *sample,RTIBool deallocate_pointers);
 
     NDDSUSERDllExport extern void 
-    HelloWorldPluginSupport_destroy_data(
-        HelloWorld *sample);
+    TwistCommandsPluginSupport_destroy_data(
+        TwistCommands *sample);
 
     NDDSUSERDllExport extern void 
-    HelloWorldPluginSupport_print_data(
-        const HelloWorld *sample,
+    TwistCommandsPluginSupport_print_data(
+        const TwistCommands *sample,
         const char *desc,
         unsigned int indent);
 
@@ -79,7 +79,7 @@ extern "C" {
     * ---------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern PRESTypePluginParticipantData 
-    HelloWorldPlugin_on_participant_attached(
+    TwistCommandsPlugin_on_participant_attached(
         void *registration_data, 
         const struct PRESTypePluginParticipantInfo *participant_info,
         RTIBool top_level_registration, 
@@ -87,40 +87,40 @@ extern "C" {
         RTICdrTypeCode *typeCode);
 
     NDDSUSERDllExport extern void 
-    HelloWorldPlugin_on_participant_detached(
+    TwistCommandsPlugin_on_participant_detached(
         PRESTypePluginParticipantData participant_data);
 
     NDDSUSERDllExport extern PRESTypePluginEndpointData 
-    HelloWorldPlugin_on_endpoint_attached(
+    TwistCommandsPlugin_on_endpoint_attached(
         PRESTypePluginParticipantData participant_data,
         const struct PRESTypePluginEndpointInfo *endpoint_info,
         RTIBool top_level_registration, 
         void *container_plugin_context);
 
     NDDSUSERDllExport extern void 
-    HelloWorldPlugin_on_endpoint_detached(
+    TwistCommandsPlugin_on_endpoint_detached(
         PRESTypePluginEndpointData endpoint_data);
 
     NDDSUSERDllExport extern void    
-    HelloWorldPlugin_return_sample(
+    TwistCommandsPlugin_return_sample(
         PRESTypePluginEndpointData endpoint_data,
-        HelloWorld *sample,
+        TwistCommands *sample,
         void *handle);    
 
     NDDSUSERDllExport extern RTIBool 
-    HelloWorldPlugin_copy_sample(
+    TwistCommandsPlugin_copy_sample(
         PRESTypePluginEndpointData endpoint_data,
-        HelloWorld *out,
-        const HelloWorld *in);
+        TwistCommands *out,
+        const TwistCommands *in);
 
     /* ----------------------------------------------------------------------------
     (De)Serialize functions:
     * ------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern RTIBool 
-    HelloWorldPlugin_serialize(
+    TwistCommandsPlugin_serialize(
         PRESTypePluginEndpointData endpoint_data,
-        const HelloWorld *sample,
+        const TwistCommands *sample,
         struct RTICdrStream *stream, 
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -128,24 +128,24 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    HelloWorldPlugin_deserialize_sample(
+    TwistCommandsPlugin_deserialize_sample(
         PRESTypePluginEndpointData endpoint_data,
-        HelloWorld *sample, 
+        TwistCommands *sample, 
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_sample, 
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    HelloWorldPlugin_serialize_to_cdr_buffer(
+    TwistCommandsPlugin_serialize_to_cdr_buffer(
         char * buffer,
         unsigned int * length,
-        const HelloWorld *sample); 
+        const TwistCommands *sample); 
 
     NDDSUSERDllExport extern RTIBool 
-    HelloWorldPlugin_deserialize(
+    TwistCommandsPlugin_deserialize(
         PRESTypePluginEndpointData endpoint_data,
-        HelloWorld **sample, 
+        TwistCommands **sample, 
         RTIBool * drop_sample,
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
@@ -153,13 +153,13 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    HelloWorldPlugin_deserialize_from_cdr_buffer(
-        HelloWorld *sample,
+    TwistCommandsPlugin_deserialize_from_cdr_buffer(
+        TwistCommands *sample,
         const char * buffer,
         unsigned int length);    
 
     NDDSUSERDllExport extern RTIBool
-    HelloWorldPlugin_skip(
+    TwistCommandsPlugin_skip(
         PRESTypePluginEndpointData endpoint_data,
         struct RTICdrStream *stream, 
         RTIBool skip_encapsulation,  
@@ -167,7 +167,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern unsigned int 
-    HelloWorldPlugin_get_serialized_sample_max_size_ex(
+    TwistCommandsPlugin_get_serialized_sample_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -175,35 +175,35 @@ extern "C" {
         unsigned int current_alignment);    
 
     NDDSUSERDllExport extern unsigned int 
-    HelloWorldPlugin_get_serialized_sample_max_size(
+    TwistCommandsPlugin_get_serialized_sample_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    HelloWorldPlugin_get_serialized_sample_min_size(
+    TwistCommandsPlugin_get_serialized_sample_min_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int
-    HelloWorldPlugin_get_serialized_sample_size(
+    TwistCommandsPlugin_get_serialized_sample_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment,
-        const HelloWorld * sample);
+        const TwistCommands * sample);
 
     /* --------------------------------------------------------------------------------------
     Key Management functions:
     * -------------------------------------------------------------------------------------- */
     NDDSUSERDllExport extern PRESTypePluginKeyKind 
-    HelloWorldPlugin_get_key_kind(void);
+    TwistCommandsPlugin_get_key_kind(void);
 
     NDDSUSERDllExport extern unsigned int 
-    HelloWorldPlugin_get_serialized_key_max_size_ex(
+    TwistCommandsPlugin_get_serialized_key_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -211,16 +211,16 @@ extern "C" {
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    HelloWorldPlugin_get_serialized_key_max_size(
+    TwistCommandsPlugin_get_serialized_key_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern RTIBool 
-    HelloWorldPlugin_serialize_key(
+    TwistCommandsPlugin_serialize_key(
         PRESTypePluginEndpointData endpoint_data,
-        const HelloWorld *sample,
+        const TwistCommands *sample,
         struct RTICdrStream *stream,
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -228,18 +228,18 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    HelloWorldPlugin_deserialize_key_sample(
+    TwistCommandsPlugin_deserialize_key_sample(
         PRESTypePluginEndpointData endpoint_data,
-        HelloWorld * sample,
+        TwistCommands * sample,
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_key,
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    HelloWorldPlugin_deserialize_key(
+    TwistCommandsPlugin_deserialize_key(
         PRESTypePluginEndpointData endpoint_data,
-        HelloWorld ** sample,
+        TwistCommands ** sample,
         RTIBool * drop_sample,
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
@@ -247,9 +247,9 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    HelloWorldPlugin_serialized_sample_to_key(
+    TwistCommandsPlugin_serialized_sample_to_key(
         PRESTypePluginEndpointData endpoint_data,
-        HelloWorld *sample,
+        TwistCommands *sample,
         struct RTICdrStream *stream, 
         RTIBool deserialize_encapsulation,  
         RTIBool deserialize_key, 
@@ -257,10 +257,10 @@ extern "C" {
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
-    HelloWorldPlugin_new(void);
+    TwistCommandsPlugin_new(void);
 
     NDDSUSERDllExport extern void
-    HelloWorldPlugin_delete(struct PRESTypePlugin *);
+    TwistCommandsPlugin_delete(struct PRESTypePlugin *);
 
 }
 
@@ -271,5 +271,5 @@ extern "C" {
 #define NDDSUSERDllExport
 #endif
 
-#endif /* HelloWorldPlugin_1436886690_h */
+#endif /* GamePadPlugin_726381382_h */
 

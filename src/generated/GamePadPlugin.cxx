@@ -3,7 +3,7 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from HelloWorld.idl using "rtiddsgen".
+This file was generated from GamePad.idl using "rtiddsgen".
 The rtiddsgen tool is part of the RTI Connext distribution.
 For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
@@ -46,26 +46,26 @@ or consult the RTI Connext manual.
 #include "pres/pres_typePlugin.h"
 #endif
 
-#include "HelloWorldPlugin.h"
+#include "GamePadPlugin.h"
 
 /* ----------------------------------------------------------------------------
-*  Type HelloWorld
+*  Type TwistCommands
 * -------------------------------------------------------------------------- */
 
 /* -----------------------------------------------------------------------------
 Support functions:
 * -------------------------------------------------------------------------- */
 
-HelloWorld*
-HelloWorldPluginSupport_create_data_w_params(
+TwistCommands*
+TwistCommandsPluginSupport_create_data_w_params(
     const struct DDS_TypeAllocationParams_t * alloc_params){
-    HelloWorld *sample = NULL;
+    TwistCommands *sample = NULL;
 
     RTIOsapiHeap_allocateStructure(
-        &sample, HelloWorld);
+        &sample, TwistCommands);
 
     if(sample != NULL) {
-        if (!HelloWorld_initialize_w_params(sample,alloc_params)) {
+        if (!TwistCommands_initialize_w_params(sample,alloc_params)) {
             RTIOsapiHeap_freeStructure(sample);
             return NULL;
         }
@@ -73,15 +73,15 @@ HelloWorldPluginSupport_create_data_w_params(
     return sample; 
 } 
 
-HelloWorld *
-HelloWorldPluginSupport_create_data_ex(RTIBool allocate_pointers){
-    HelloWorld *sample = NULL;
+TwistCommands *
+TwistCommandsPluginSupport_create_data_ex(RTIBool allocate_pointers){
+    TwistCommands *sample = NULL;
 
     RTIOsapiHeap_allocateStructure(
-        &sample, HelloWorld);
+        &sample, TwistCommands);
 
     if(sample != NULL) {
-        if (!HelloWorld_initialize_ex(sample,allocate_pointers, RTI_TRUE)) {
+        if (!TwistCommands_initialize_ex(sample,allocate_pointers, RTI_TRUE)) {
             RTIOsapiHeap_freeStructure(sample);
             return NULL;
         }
@@ -89,50 +89,50 @@ HelloWorldPluginSupport_create_data_ex(RTIBool allocate_pointers){
     return sample; 
 }
 
-HelloWorld *
-HelloWorldPluginSupport_create_data(void)
+TwistCommands *
+TwistCommandsPluginSupport_create_data(void)
 {
-    return HelloWorldPluginSupport_create_data_ex(RTI_TRUE);
+    return TwistCommandsPluginSupport_create_data_ex(RTI_TRUE);
 }
 
 void 
-HelloWorldPluginSupport_destroy_data_w_params(
-    HelloWorld *sample,
+TwistCommandsPluginSupport_destroy_data_w_params(
+    TwistCommands *sample,
     const struct DDS_TypeDeallocationParams_t * dealloc_params) {
 
-    HelloWorld_finalize_w_params(sample,dealloc_params);
+    TwistCommands_finalize_w_params(sample,dealloc_params);
 
     RTIOsapiHeap_freeStructure(sample);
 }
 
 void 
-HelloWorldPluginSupport_destroy_data_ex(
-    HelloWorld *sample,RTIBool deallocate_pointers) {
+TwistCommandsPluginSupport_destroy_data_ex(
+    TwistCommands *sample,RTIBool deallocate_pointers) {
 
-    HelloWorld_finalize_ex(sample,deallocate_pointers);
+    TwistCommands_finalize_ex(sample,deallocate_pointers);
 
     RTIOsapiHeap_freeStructure(sample);
 }
 
 void 
-HelloWorldPluginSupport_destroy_data(
-    HelloWorld *sample) {
+TwistCommandsPluginSupport_destroy_data(
+    TwistCommands *sample) {
 
-    HelloWorldPluginSupport_destroy_data_ex(sample,RTI_TRUE);
+    TwistCommandsPluginSupport_destroy_data_ex(sample,RTI_TRUE);
 
 }
 
 RTIBool 
-HelloWorldPluginSupport_copy_data(
-    HelloWorld *dst,
-    const HelloWorld *src)
+TwistCommandsPluginSupport_copy_data(
+    TwistCommands *dst,
+    const TwistCommands *src)
 {
-    return HelloWorld_copy(dst,src);
+    return TwistCommands_copy(dst,src);
 }
 
 void 
-HelloWorldPluginSupport_print_data(
-    const HelloWorld *sample,
+TwistCommandsPluginSupport_print_data(
+    const TwistCommands *sample,
     const char *desc,
     unsigned int indent_level)
 {
@@ -183,7 +183,7 @@ Callback functions:
 * ---------------------------------------------------------------------------- */
 
 PRESTypePluginParticipantData 
-HelloWorldPlugin_on_participant_attached(
+TwistCommandsPlugin_on_participant_attached(
     void *registration_data,
     const struct PRESTypePluginParticipantInfo *participant_info,
     RTIBool top_level_registration,
@@ -201,7 +201,7 @@ HelloWorldPlugin_on_participant_attached(
 }
 
 void 
-HelloWorldPlugin_on_participant_detached(
+TwistCommandsPlugin_on_participant_detached(
     PRESTypePluginParticipantData participant_data)
 {
 
@@ -209,7 +209,7 @@ HelloWorldPlugin_on_participant_detached(
 }
 
 PRESTypePluginEndpointData
-HelloWorldPlugin_on_endpoint_attached(
+TwistCommandsPlugin_on_endpoint_attached(
     PRESTypePluginParticipantData participant_data,
     const struct PRESTypePluginEndpointInfo *endpoint_info,
     RTIBool top_level_registration, 
@@ -226,9 +226,9 @@ HelloWorldPlugin_on_endpoint_attached(
         participant_data,
         endpoint_info,
         (PRESTypePluginDefaultEndpointDataCreateSampleFunction)
-        HelloWorldPluginSupport_create_data,
+        TwistCommandsPluginSupport_create_data,
         (PRESTypePluginDefaultEndpointDataDestroySampleFunction)
-        HelloWorldPluginSupport_destroy_data,
+        TwistCommandsPluginSupport_destroy_data,
         NULL , NULL );
 
     if (epd == NULL) {
@@ -236,7 +236,7 @@ HelloWorldPlugin_on_endpoint_attached(
     } 
 
     if (endpoint_info->endpointKind == PRES_TYPEPLUGIN_ENDPOINT_WRITER) {
-        serializedSampleMaxSize = HelloWorldPlugin_get_serialized_sample_max_size(
+        serializedSampleMaxSize = TwistCommandsPlugin_get_serialized_sample_max_size(
             epd,RTI_FALSE,RTI_CDR_ENCAPSULATION_ID_CDR_BE,0);
 
         PRESTypePluginDefaultEndpointData_setMaxSizeSerializedSample(epd, serializedSampleMaxSize);
@@ -245,9 +245,9 @@ HelloWorldPlugin_on_endpoint_attached(
             epd,
             endpoint_info,
             (PRESTypePluginGetSerializedSampleMaxSizeFunction)
-            HelloWorldPlugin_get_serialized_sample_max_size, epd,
+            TwistCommandsPlugin_get_serialized_sample_max_size, epd,
             (PRESTypePluginGetSerializedSampleSizeFunction)
-            HelloWorldPlugin_get_serialized_sample_size,
+            TwistCommandsPlugin_get_serialized_sample_size,
             epd) == RTI_FALSE) {
             PRESTypePluginDefaultEndpointData_delete(epd);
             return NULL;
@@ -258,7 +258,7 @@ HelloWorldPlugin_on_endpoint_attached(
 }
 
 void 
-HelloWorldPlugin_on_endpoint_detached(
+TwistCommandsPlugin_on_endpoint_detached(
     PRESTypePluginEndpointData endpoint_data)
 {  
 
@@ -266,42 +266,42 @@ HelloWorldPlugin_on_endpoint_detached(
 }
 
 void    
-HelloWorldPlugin_return_sample(
+TwistCommandsPlugin_return_sample(
     PRESTypePluginEndpointData endpoint_data,
-    HelloWorld *sample,
+    TwistCommands *sample,
     void *handle)
 {
 
-    HelloWorld_finalize_optional_members(sample, RTI_TRUE);
+    TwistCommands_finalize_optional_members(sample, RTI_TRUE);
 
     PRESTypePluginDefaultEndpointData_returnSample(
         endpoint_data, sample, handle);
 }
 
 RTIBool 
-HelloWorldPlugin_copy_sample(
+TwistCommandsPlugin_copy_sample(
     PRESTypePluginEndpointData endpoint_data,
-    HelloWorld *dst,
-    const HelloWorld *src)
+    TwistCommands *dst,
+    const TwistCommands *src)
 {
     if (endpoint_data) {} /* To avoid warnings */
-    return HelloWorldPluginSupport_copy_data(dst,src);
+    return TwistCommandsPluginSupport_copy_data(dst,src);
 }
 
 /* ----------------------------------------------------------------------------
 (De)Serialize functions:
 * ------------------------------------------------------------------------- */
 unsigned int 
-HelloWorldPlugin_get_serialized_sample_max_size(
+TwistCommandsPlugin_get_serialized_sample_max_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
     unsigned int current_alignment);
 
 RTIBool 
-HelloWorldPlugin_serialize(
+TwistCommandsPlugin_serialize(
     PRESTypePluginEndpointData endpoint_data,
-    const HelloWorld *sample, 
+    const TwistCommands *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -364,9 +364,9 @@ HelloWorldPlugin_serialize(
 }
 
 RTIBool 
-HelloWorldPlugin_deserialize_sample(
+TwistCommandsPlugin_deserialize_sample(
     PRESTypePluginEndpointData endpoint_data,
-    HelloWorld *sample,
+    TwistCommands *sample,
     struct RTICdrStream *stream,   
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_sample, 
@@ -389,7 +389,7 @@ HelloWorldPlugin_deserialize_sample(
     }
     if(deserialize_sample) {
 
-        HelloWorld_initialize_ex(sample, RTI_FALSE, RTI_FALSE);
+        TwistCommands_initialize_ex(sample, RTI_FALSE, RTI_FALSE);
 
         if (!RTICdrStream_deserializeStringEx(
             stream,&sample->prefix, ((HELLODDS_MAX_STRING_SIZE)) + 1, RTI_FALSE)) {
@@ -442,10 +442,10 @@ HelloWorldPlugin_deserialize_sample(
 }
 
 RTIBool
-HelloWorldPlugin_serialize_to_cdr_buffer(
+TwistCommandsPlugin_serialize_to_cdr_buffer(
     char * buffer,
     unsigned int * length,
-    const HelloWorld *sample)
+    const TwistCommands *sample)
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
@@ -456,12 +456,12 @@ HelloWorldPlugin_serialize_to_cdr_buffer(
     }
 
     epd._maxSizeSerializedSample =
-    HelloWorldPlugin_get_serialized_sample_max_size(
+    TwistCommandsPlugin_get_serialized_sample_max_size(
         NULL, RTI_TRUE, RTI_CDR_ENCAPSULATION_ID_CDR_NATIVE, 0);
 
     if (buffer == NULL) {
         *length = 
-        HelloWorldPlugin_get_serialized_sample_size(
+        TwistCommandsPlugin_get_serialized_sample_size(
             (PRESTypePluginEndpointData)&epd,
             RTI_TRUE,
             RTI_CDR_ENCAPSULATION_ID_CDR_NATIVE,
@@ -478,7 +478,7 @@ HelloWorldPlugin_serialize_to_cdr_buffer(
     RTICdrStream_init(&stream);
     RTICdrStream_set(&stream, (char *)buffer, *length);
 
-    result = HelloWorldPlugin_serialize(
+    result = TwistCommandsPlugin_serialize(
         (PRESTypePluginEndpointData)&epd, sample, &stream, 
         RTI_TRUE, RTI_CDR_ENCAPSULATION_ID_CDR_NATIVE, 
         RTI_TRUE, NULL);  
@@ -488,8 +488,8 @@ HelloWorldPlugin_serialize_to_cdr_buffer(
 }
 
 RTIBool
-HelloWorldPlugin_deserialize_from_cdr_buffer(
-    HelloWorld *sample,
+TwistCommandsPlugin_deserialize_from_cdr_buffer(
+    TwistCommands *sample,
     const char * buffer,
     unsigned int length)
 {
@@ -498,16 +498,16 @@ HelloWorldPlugin_deserialize_from_cdr_buffer(
     RTICdrStream_init(&stream);
     RTICdrStream_set(&stream, (char *)buffer, length);
 
-    return HelloWorldPlugin_deserialize_sample( 
+    return TwistCommandsPlugin_deserialize_sample( 
         NULL, sample,
         &stream, RTI_TRUE, RTI_TRUE, 
         NULL);
 }
 
 RTIBool 
-HelloWorldPlugin_deserialize(
+TwistCommandsPlugin_deserialize(
     PRESTypePluginEndpointData endpoint_data,
-    HelloWorld **sample,
+    TwistCommands **sample,
     RTIBool * drop_sample,
     struct RTICdrStream *stream,   
     RTIBool deserialize_encapsulation,
@@ -519,7 +519,7 @@ HelloWorldPlugin_deserialize(
     if (drop_sample) {} /* To avoid warnings */
 
     stream->_xTypesState.unassignable = RTI_FALSE;
-    result= HelloWorldPlugin_deserialize_sample( 
+    result= TwistCommandsPlugin_deserialize_sample( 
         endpoint_data, (sample != NULL)?*sample:NULL,
         stream, deserialize_encapsulation, deserialize_sample, 
         endpoint_plugin_qos);
@@ -533,7 +533,7 @@ HelloWorldPlugin_deserialize(
 
 }
 
-RTIBool HelloWorldPlugin_skip(
+RTIBool TwistCommandsPlugin_skip(
     PRESTypePluginEndpointData endpoint_data,
     struct RTICdrStream *stream,   
     RTIBool skip_encapsulation,
@@ -589,7 +589,7 @@ RTIBool HelloWorldPlugin_skip(
 }
 
 unsigned int 
-HelloWorldPlugin_get_serialized_sample_max_size_ex(
+TwistCommandsPlugin_get_serialized_sample_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -631,7 +631,7 @@ HelloWorldPlugin_get_serialized_sample_max_size_ex(
 }
 
 unsigned int 
-HelloWorldPlugin_get_serialized_sample_max_size(
+TwistCommandsPlugin_get_serialized_sample_max_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -640,7 +640,7 @@ HelloWorldPlugin_get_serialized_sample_max_size(
     unsigned int size;
     RTIBool overflow = RTI_FALSE;
 
-    size = HelloWorldPlugin_get_serialized_sample_max_size_ex(
+    size = TwistCommandsPlugin_get_serialized_sample_max_size_ex(
         endpoint_data,&overflow,include_encapsulation,encapsulation_id,current_alignment);
 
     if (overflow) {
@@ -651,7 +651,7 @@ HelloWorldPlugin_get_serialized_sample_max_size(
 }
 
 unsigned int 
-HelloWorldPlugin_get_serialized_sample_min_size(
+TwistCommandsPlugin_get_serialized_sample_min_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -695,12 +695,12 @@ HelloWorldPlugin_get_serialized_sample_min_size(
 * encapsulation flags.
 */
 unsigned int
-HelloWorldPlugin_get_serialized_sample_size(
+TwistCommandsPlugin_get_serialized_sample_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
     unsigned int current_alignment,
-    const HelloWorld * sample) 
+    const TwistCommands * sample) 
 {
 
     unsigned int initial_alignment = current_alignment;
@@ -743,15 +743,15 @@ Key Management functions:
 * -------------------------------------------------------------------------------------- */
 
 PRESTypePluginKeyKind 
-HelloWorldPlugin_get_key_kind(void)
+TwistCommandsPlugin_get_key_kind(void)
 {
     return PRES_TYPEPLUGIN_NO_KEY;
 }
 
 RTIBool 
-HelloWorldPlugin_serialize_key(
+TwistCommandsPlugin_serialize_key(
     PRESTypePluginEndpointData endpoint_data,
-    const HelloWorld *sample, 
+    const TwistCommands *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -770,7 +770,7 @@ HelloWorldPlugin_serialize_key(
 
     if(serialize_key) {
 
-        if (!HelloWorldPlugin_serialize(
+        if (!TwistCommandsPlugin_serialize(
             endpoint_data,
             sample,
             stream,
@@ -789,9 +789,9 @@ HelloWorldPlugin_serialize_key(
     return RTI_TRUE;
 }
 
-RTIBool HelloWorldPlugin_deserialize_key_sample(
+RTIBool TwistCommandsPlugin_deserialize_key_sample(
     PRESTypePluginEndpointData endpoint_data,
-    HelloWorld *sample, 
+    TwistCommands *sample, 
     struct RTICdrStream *stream,
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_key,
@@ -812,7 +812,7 @@ RTIBool HelloWorldPlugin_deserialize_key_sample(
     }
     if (deserialize_key) {
 
-        if (!HelloWorldPlugin_deserialize_sample(
+        if (!TwistCommandsPlugin_deserialize_sample(
             endpoint_data, sample, stream, 
             RTI_FALSE, RTI_TRUE, 
             endpoint_plugin_qos)) {
@@ -827,9 +827,9 @@ RTIBool HelloWorldPlugin_deserialize_key_sample(
     return RTI_TRUE;
 }
 
-RTIBool HelloWorldPlugin_deserialize_key(
+RTIBool TwistCommandsPlugin_deserialize_key(
     PRESTypePluginEndpointData endpoint_data,
-    HelloWorld **sample, 
+    TwistCommands **sample, 
     RTIBool * drop_sample,
     struct RTICdrStream *stream,
     RTIBool deserialize_encapsulation,
@@ -839,7 +839,7 @@ RTIBool HelloWorldPlugin_deserialize_key(
     RTIBool result;
     if (drop_sample) {} /* To avoid warnings */
     stream->_xTypesState.unassignable = RTI_FALSE;
-    result= HelloWorldPlugin_deserialize_key_sample(
+    result= TwistCommandsPlugin_deserialize_key_sample(
         endpoint_data, (sample != NULL)?*sample:NULL, stream,
         deserialize_encapsulation, deserialize_key, endpoint_plugin_qos);
     if (result) {
@@ -853,7 +853,7 @@ RTIBool HelloWorldPlugin_deserialize_key(
 }
 
 unsigned int
-HelloWorldPlugin_get_serialized_key_max_size_ex(
+TwistCommandsPlugin_get_serialized_key_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -879,7 +879,7 @@ HelloWorldPlugin_get_serialized_key_max_size_ex(
         initial_alignment = 0;
     }
 
-    current_alignment += HelloWorldPlugin_get_serialized_sample_max_size_ex(
+    current_alignment += TwistCommandsPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow,RTI_FALSE, encapsulation_id, current_alignment);
 
     if (include_encapsulation) {
@@ -889,7 +889,7 @@ HelloWorldPlugin_get_serialized_key_max_size_ex(
 }
 
 unsigned int
-HelloWorldPlugin_get_serialized_key_max_size(
+TwistCommandsPlugin_get_serialized_key_max_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -898,7 +898,7 @@ HelloWorldPlugin_get_serialized_key_max_size(
     unsigned int size;
     RTIBool overflow = RTI_FALSE;
 
-    size = HelloWorldPlugin_get_serialized_key_max_size_ex(
+    size = TwistCommandsPlugin_get_serialized_key_max_size_ex(
         endpoint_data,&overflow,include_encapsulation,encapsulation_id,current_alignment);
 
     if (overflow) {
@@ -909,9 +909,9 @@ HelloWorldPlugin_get_serialized_key_max_size(
 }
 
 RTIBool 
-HelloWorldPlugin_serialized_sample_to_key(
+TwistCommandsPlugin_serialized_sample_to_key(
     PRESTypePluginEndpointData endpoint_data,
-    HelloWorld *sample,
+    TwistCommands *sample,
     struct RTICdrStream *stream, 
     RTIBool deserialize_encapsulation,  
     RTIBool deserialize_key, 
@@ -935,7 +935,7 @@ HelloWorldPlugin_serialized_sample_to_key(
 
     if (deserialize_key) {
 
-        if (!HelloWorldPlugin_deserialize_sample(
+        if (!TwistCommandsPlugin_deserialize_sample(
             endpoint_data, sample, stream, RTI_FALSE, 
             RTI_TRUE, endpoint_plugin_qos)) {
             return RTI_FALSE;
@@ -965,7 +965,7 @@ HelloWorldPlugin_serialized_sample_to_key(
 /* ------------------------------------------------------------------------
 * Plug-in Installation Methods
 * ------------------------------------------------------------------------ */
-struct PRESTypePlugin *HelloWorldPlugin_new(void) 
+struct PRESTypePlugin *TwistCommandsPlugin_new(void) 
 { 
     struct PRESTypePlugin *plugin = NULL;
     const struct PRESTypePluginVersion PLUGIN_VERSION = 
@@ -982,50 +982,50 @@ struct PRESTypePlugin *HelloWorldPlugin_new(void)
     /* set up parent's function pointers */
     plugin->onParticipantAttached =
     (PRESTypePluginOnParticipantAttachedCallback)
-    HelloWorldPlugin_on_participant_attached;
+    TwistCommandsPlugin_on_participant_attached;
     plugin->onParticipantDetached =
     (PRESTypePluginOnParticipantDetachedCallback)
-    HelloWorldPlugin_on_participant_detached;
+    TwistCommandsPlugin_on_participant_detached;
     plugin->onEndpointAttached =
     (PRESTypePluginOnEndpointAttachedCallback)
-    HelloWorldPlugin_on_endpoint_attached;
+    TwistCommandsPlugin_on_endpoint_attached;
     plugin->onEndpointDetached =
     (PRESTypePluginOnEndpointDetachedCallback)
-    HelloWorldPlugin_on_endpoint_detached;
+    TwistCommandsPlugin_on_endpoint_detached;
 
     plugin->copySampleFnc =
     (PRESTypePluginCopySampleFunction)
-    HelloWorldPlugin_copy_sample;
+    TwistCommandsPlugin_copy_sample;
     plugin->createSampleFnc =
     (PRESTypePluginCreateSampleFunction)
-    HelloWorldPlugin_create_sample;
+    TwistCommandsPlugin_create_sample;
     plugin->destroySampleFnc =
     (PRESTypePluginDestroySampleFunction)
-    HelloWorldPlugin_destroy_sample;
+    TwistCommandsPlugin_destroy_sample;
 
     plugin->serializeFnc =
     (PRESTypePluginSerializeFunction)
-    HelloWorldPlugin_serialize;
+    TwistCommandsPlugin_serialize;
     plugin->deserializeFnc =
     (PRESTypePluginDeserializeFunction)
-    HelloWorldPlugin_deserialize;
+    TwistCommandsPlugin_deserialize;
     plugin->getSerializedSampleMaxSizeFnc =
     (PRESTypePluginGetSerializedSampleMaxSizeFunction)
-    HelloWorldPlugin_get_serialized_sample_max_size;
+    TwistCommandsPlugin_get_serialized_sample_max_size;
     plugin->getSerializedSampleMinSizeFnc =
     (PRESTypePluginGetSerializedSampleMinSizeFunction)
-    HelloWorldPlugin_get_serialized_sample_min_size;
+    TwistCommandsPlugin_get_serialized_sample_min_size;
 
     plugin->getSampleFnc =
     (PRESTypePluginGetSampleFunction)
-    HelloWorldPlugin_get_sample;
+    TwistCommandsPlugin_get_sample;
     plugin->returnSampleFnc =
     (PRESTypePluginReturnSampleFunction)
-    HelloWorldPlugin_return_sample;
+    TwistCommandsPlugin_return_sample;
 
     plugin->getKeyKindFnc =
     (PRESTypePluginGetKeyKindFunction)
-    HelloWorldPlugin_get_key_kind;
+    TwistCommandsPlugin_get_key_kind;
 
     /* These functions are only used for keyed types. As this is not a keyed
     type they are all set to NULL
@@ -1040,28 +1040,28 @@ struct PRESTypePlugin *HelloWorldPlugin_new(void)
     plugin->instanceToKeyHashFnc = NULL;
     plugin->serializedSampleToKeyHashFnc = NULL;
     plugin->serializedKeyToKeyHashFnc = NULL;    
-    plugin->typeCode =  (struct RTICdrTypeCode *)HelloWorld_get_typecode();
+    plugin->typeCode =  (struct RTICdrTypeCode *)TwistCommands_get_typecode();
 
     plugin->languageKind = PRES_TYPEPLUGIN_CPP_LANG;
 
     /* Serialized buffer */
     plugin->getBuffer = 
     (PRESTypePluginGetBufferFunction)
-    HelloWorldPlugin_get_buffer;
+    TwistCommandsPlugin_get_buffer;
     plugin->returnBuffer = 
     (PRESTypePluginReturnBufferFunction)
-    HelloWorldPlugin_return_buffer;
+    TwistCommandsPlugin_return_buffer;
     plugin->getSerializedSampleSizeFnc =
     (PRESTypePluginGetSerializedSampleSizeFunction)
-    HelloWorldPlugin_get_serialized_sample_size;
+    TwistCommandsPlugin_get_serialized_sample_size;
 
-    plugin->endpointTypeName = HelloWorldTYPENAME;
+    plugin->endpointTypeName = TwistCommandsTYPENAME;
 
     return plugin;
 }
 
 void
-HelloWorldPlugin_delete(struct PRESTypePlugin *plugin)
+TwistCommandsPlugin_delete(struct PRESTypePlugin *plugin)
 {
     RTIOsapiHeap_freeStructure(plugin);
 } 

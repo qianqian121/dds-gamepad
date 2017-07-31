@@ -2,17 +2,17 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from HelloWorld.idl using "rtiddsgen".
+This file was generated from GamePad.idl using "rtiddsgen".
 The rtiddsgen tool is part of the RTI Connext distribution.
 For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef HelloWorldSupport_1436886690_h
-#define HelloWorldSupport_1436886690_h
+#ifndef GamePadSupport_726381382_h
+#define GamePadSupport_726381382_h
 
 /* Uses */
-#include "HelloWorld.h"
+#include "GamePad.h"
 
 #ifndef ndds_cpp_h
 #include "ndds/ndds_cpp.h"
@@ -44,10 +44,10 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(HelloWorldTypeSupport, HelloWorld);
+DDS_TYPESUPPORT_CPP(TwistCommandsTypeSupport, TwistCommands);
 
-DDS_DATAWRITER_CPP(HelloWorldDataWriter, HelloWorld);
-DDS_DATAREADER_CPP(HelloWorldDataReader, HelloWorldSeq, HelloWorld);
+DDS_DATAWRITER_CPP(TwistCommandsDataWriter, TwistCommands);
+DDS_DATAREADER_CPP(TwistCommandsDataReader, TwistCommandsSeq, TwistCommands);
 
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, stop exporting symbols.
@@ -56,5 +56,5 @@ DDS_DATAREADER_CPP(HelloWorldDataReader, HelloWorldSeq, HelloWorld);
 #define NDDSUSERDllExport
 #endif
 
-#endif  /* HelloWorldSupport_1436886690_h */
+#endif  /* GamePadSupport_726381382_h */
 

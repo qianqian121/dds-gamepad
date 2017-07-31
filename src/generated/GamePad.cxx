@@ -3,7 +3,7 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from HelloWorld.idl using "rtiddsgen".
+This file was generated from GamePad.idl using "rtiddsgen".
 The rtiddsgen tool is part of the RTI Connext distribution.
 For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
@@ -28,18 +28,18 @@ or consult the RTI Connext manual.
 #include "ndds_standalone_type.h"
 #endif
 
-#include "HelloWorld.h"
+#include "GamePad.h"
 
 /* ========================================================================= */
-const char *HelloWorldTYPENAME = "HelloWorld";
+const char *TwistCommandsTYPENAME = "TwistCommands";
 
-DDS_TypeCode* HelloWorld_get_typecode()
+DDS_TypeCode* TwistCommands_get_typecode()
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode HelloWorld_g_tc_prefix_string = DDS_INITIALIZE_STRING_TYPECODE(((HELLODDS_MAX_STRING_SIZE)));
-    static DDS_TypeCode HelloWorld_g_tc_payload_sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE(((HELLODDS_MAX_PAYLOAD_SIZE)),NULL);
-    static DDS_TypeCode_Member HelloWorld_g_tc_members[3]=
+    static DDS_TypeCode TwistCommands_g_tc_prefix_string = DDS_INITIALIZE_STRING_TYPECODE(((HELLODDS_MAX_STRING_SIZE)));
+    static DDS_TypeCode TwistCommands_g_tc_payload_sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE(((HELLODDS_MAX_PAYLOAD_SIZE)),NULL);
+    static DDS_TypeCode_Member TwistCommands_g_tc_members[3]=
     {
 
         {
@@ -95,45 +95,45 @@ DDS_TypeCode* HelloWorld_get_typecode()
         }
     };
 
-    static DDS_TypeCode HelloWorld_g_tc =
+    static DDS_TypeCode TwistCommands_g_tc =
     {{
             DDS_TK_STRUCT,/* Kind */
             DDS_BOOLEAN_FALSE, /* Ignored */
             -1, /*Ignored*/
-            (char *)"HelloWorld", /* Name */
+            (char *)"TwistCommands", /* Name */
             NULL, /* Ignored */      
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
             3, /* Number of members */
-            HelloWorld_g_tc_members, /* Members */
+            TwistCommands_g_tc_members, /* Members */
             DDS_VM_NONE  /* Ignored */         
-        }}; /* Type code for HelloWorld*/
+        }}; /* Type code for TwistCommands*/
 
     if (is_initialized) {
-        return &HelloWorld_g_tc;
+        return &TwistCommands_g_tc;
     }
 
-    HelloWorld_g_tc_payload_sequence._data._typeCode = (RTICdrTypeCode *)&DDS_g_tc_octet;
+    TwistCommands_g_tc_payload_sequence._data._typeCode = (RTICdrTypeCode *)&DDS_g_tc_octet;
 
-    HelloWorld_g_tc_members[0]._representation._typeCode = (RTICdrTypeCode *)&HelloWorld_g_tc_prefix_string;
+    TwistCommands_g_tc_members[0]._representation._typeCode = (RTICdrTypeCode *)&TwistCommands_g_tc_prefix_string;
 
-    HelloWorld_g_tc_members[1]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_long;
+    TwistCommands_g_tc_members[1]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_long;
 
-    HelloWorld_g_tc_members[2]._representation._typeCode = (RTICdrTypeCode *)& HelloWorld_g_tc_payload_sequence;
+    TwistCommands_g_tc_members[2]._representation._typeCode = (RTICdrTypeCode *)& TwistCommands_g_tc_payload_sequence;
 
     is_initialized = RTI_TRUE;
 
-    return &HelloWorld_g_tc;
+    return &TwistCommands_g_tc;
 }
 
-RTIBool HelloWorld_initialize(
-    HelloWorld* sample) {
-    return HelloWorld_initialize_ex(sample,RTI_TRUE,RTI_TRUE);
+RTIBool TwistCommands_initialize(
+    TwistCommands* sample) {
+    return TwistCommands_initialize_ex(sample,RTI_TRUE,RTI_TRUE);
 }
 
-RTIBool HelloWorld_initialize_ex(
-    HelloWorld* sample,RTIBool allocatePointers, RTIBool allocateMemory)
+RTIBool TwistCommands_initialize_ex(
+    TwistCommands* sample,RTIBool allocatePointers, RTIBool allocateMemory)
 {
 
     struct DDS_TypeAllocationParams_t allocParams =
@@ -142,13 +142,13 @@ RTIBool HelloWorld_initialize_ex(
     allocParams.allocate_pointers =  (DDS_Boolean)allocatePointers;
     allocParams.allocate_memory = (DDS_Boolean)allocateMemory;
 
-    return HelloWorld_initialize_w_params(
+    return TwistCommands_initialize_w_params(
         sample,&allocParams);
 
 }
 
-RTIBool HelloWorld_initialize_w_params(
-    HelloWorld* sample, const struct DDS_TypeAllocationParams_t * allocParams)
+RTIBool TwistCommands_initialize_w_params(
+    TwistCommands* sample, const struct DDS_TypeAllocationParams_t * allocParams)
 {
 
     void* buffer = NULL;
@@ -183,15 +183,15 @@ RTIBool HelloWorld_initialize_w_params(
     return RTI_TRUE;
 }
 
-void HelloWorld_finalize(
-    HelloWorld* sample)
+void TwistCommands_finalize(
+    TwistCommands* sample)
 {
 
-    HelloWorld_finalize_ex(sample,RTI_TRUE);
+    TwistCommands_finalize_ex(sample,RTI_TRUE);
 }
 
-void HelloWorld_finalize_ex(
-    HelloWorld* sample,RTIBool deletePointers)
+void TwistCommands_finalize_ex(
+    TwistCommands* sample,RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParams =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -202,12 +202,12 @@ void HelloWorld_finalize_ex(
 
     deallocParams.delete_pointers = (DDS_Boolean)deletePointers;
 
-    HelloWorld_finalize_w_params(
+    TwistCommands_finalize_w_params(
         sample,&deallocParams);
 }
 
-void HelloWorld_finalize_w_params(
-    HelloWorld* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
+void TwistCommands_finalize_w_params(
+    TwistCommands* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
 {
 
     if (sample==NULL) {
@@ -225,8 +225,8 @@ void HelloWorld_finalize_w_params(
 
 }
 
-void HelloWorld_finalize_optional_members(
-    HelloWorld* sample, RTIBool deletePointers)
+void TwistCommands_finalize_optional_members(
+    TwistCommands* sample, RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParamsTmp =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -243,9 +243,9 @@ void HelloWorld_finalize_optional_members(
 
 }
 
-RTIBool HelloWorld_copy(
-    HelloWorld* dst,
-    const HelloWorld* src)
+RTIBool TwistCommands_copy(
+    TwistCommands* dst,
+    const TwistCommands* src)
 {
 
     if (!RTICdrType_copyStringEx (
@@ -270,13 +270,13 @@ RTIBool HelloWorld_copy(
 *
 * Defines:  TSeq, T
 *
-* Configure and implement 'HelloWorld' sequence class.
+* Configure and implement 'TwistCommands' sequence class.
 */
-#define T HelloWorld
-#define TSeq HelloWorldSeq
-#define T_initialize_w_params HelloWorld_initialize_w_params
-#define T_finalize_w_params   HelloWorld_finalize_w_params
-#define T_copy       HelloWorld_copy
+#define T TwistCommands
+#define TSeq TwistCommandsSeq
+#define T_initialize_w_params TwistCommands_initialize_w_params
+#define T_finalize_w_params   TwistCommands_finalize_w_params
+#define T_copy       TwistCommands_copy
 
 #ifndef NDDS_STANDALONE_TYPE
 #include "dds_c/generic/dds_c_sequence_TSeq.gen"

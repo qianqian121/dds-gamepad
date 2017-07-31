@@ -15,7 +15,7 @@ damages arising out of the use or inability to use the software.
 #include "../CommonInfrastructure/DDSCommunicator.h"
 #include "../CommonInfrastructure/DDSTypeWrapper.h"
 
-using namespace com::rti::atc::generated;
+//using namespace com::rti::atc::generated;
 
 // ----------------------------------------------------------------------------
 //
@@ -79,7 +79,7 @@ private:
 	DDSCommunicator *_communicator;
 
 	// publisher specific to this application
-	DataWriter *_writer;
+	DDS::DataWriter *_writer;
 };
 
 #endif

@@ -17,7 +17,7 @@ const long HELLODDS_MAX_STRING_SIZE = 64;
 /* This custom structure contains an opaque buffer (blob) of maximum size
  * 8Kb, an unsigned long and a simple string (max size=64 characters)
  */
-struct HelloWorld {
+struct TwistCommands {
     string<HELLODDS_MAX_STRING_SIZE>             prefix;
     long                                         sampleId;
     sequence<octet, HELLODDS_MAX_PAYLOAD_SIZE>   payload;
