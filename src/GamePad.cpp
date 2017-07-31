@@ -41,21 +41,6 @@ using namespace std;
 #define DOMAIN_ID_MAX               250
 
 /*****************************************************************************/
-/* start_application                                                         */
-/*                                                                           */
-/* Creates the DDS Domain Participant, then delegates the execution to the   */
-/* correct pub/sub function.                                                 */
-/* If entity creation is successful, this function does not return.          */
-/*                                                                           */
-/* Input:                                                                    */
-/*   arg: pointer to the CommandLineArguments structure                      */
-/*                                                                           */
-/* Returns:                                                                  */
-/*   false if an error occurred.                                             */
-/*                                                                           */
-/*****************************************************************************/
-
-/*****************************************************************************/
 /* main                                                                      */
 /*                                                                           */
 /* Application main entry point                                              */

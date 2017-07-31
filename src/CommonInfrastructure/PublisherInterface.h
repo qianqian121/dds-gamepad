@@ -20,7 +20,7 @@ damages arising out of the use or inability to use the software.
 // ----------------------------------------------------------------------------
 //
 // The interface provides data over the network (or
-// shared memory) to other applications that are interested in flight plans.
+// shared memory) to other applications that are interested in s.
 //
 // Writing data:
 // -------------------------
@@ -32,13 +32,12 @@ damages arising out of the use or inability to use the software.
 // AirTrafficControl.idl file.  
 //
 // For information on the quality of service for state data, please
-// see the flight_plan_profiles.xml file.
+// see the profiles.xml file.
 //
 // ----------------------------------------------------------------------------
 template <typename T>
-class PublisherInterface : public T
+class PublisherInterface
 {
-
 public:
 
 	// --- Constructor --- 
@@ -63,7 +62,7 @@ public:
 
 	// --- Sends the ---
 	// Uses DDS interface to send a efficiently over the network
-	// or shared memory to interested applications subscribing to flight plan
+	// or shared memory to interested applications subscribing to 
 	// information.
 	bool Write(DdsAutoType<T> data);
 
@@ -88,7 +87,7 @@ private:
 // The PublisherInterface is the network interface to the whole
 // application.  This creates a DataWriter in order to send data
 // over the network (or shared memory) to other applications that are
-// interested in flight plans.
+// interested in s.
 //
 // This interface is built from:
 // 1. Network data types and topic names defined in the IDL file
@@ -109,7 +108,7 @@ private:
 // AirTrafficControl.idl file.
 //
 // For information on the quality of service for state data, please
-// see the flight_plan_profiles.xml file.
+// see the profiles.xml file.
 // ------------------------------------------------------------------------- //
 
 template <typename T>
@@ -126,8 +125,7 @@ PublisherInterface<T>::PublisherInterface(std::string topicName)
     // Topics, etc.  Note:  The string constants with the QoS library name and
     // the QoS profile name are configured as constants in the .idl file.  The
     // profiles themselves are configured in the .xml file.
-//	if (NULL == _communicator->CreateParticipant(0, xmlFiles,
-//				QOS_LIBRARY, QOS_PROFILE_FLIGHT_PLAN))
+
     if (NULL == _communicator->CreateParticipant())
     {
         std::stringstream errss;
@@ -159,7 +157,7 @@ PublisherInterface<T>::PublisherInterface(std::string topicName)
     // whether your application is reading or writing particular data, this
     // is the data interface of your application.
 
-    // This topic has the name AIRCRAFT_FLIGHT_PLAN_TOPIC - a constant
+    // This topic has the name AIRCRAFT_TOPIC - a constant
     // string that is defined in the .idl file.  (It is not required that
     // you define your topic name in IDL, but it is a best practice for
     // ensuring the data interface of an application is all defined in one
@@ -217,7 +215,7 @@ bool PublisherInterface<T>::Write(DdsAutoType<T> data)
 
 	// The handle that the write() call takes is a handle to the individual
 	// instance - a unique described by a
-	// unique 8-character flight ID.
+	// unique 8-character ID.
 
 	// The data has a very simple ID, and does not need high-
 	// throughput, so we are not bothering to pre-register the instance
