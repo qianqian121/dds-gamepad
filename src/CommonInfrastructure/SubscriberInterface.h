@@ -157,7 +157,8 @@ void SubscriberInterface::subscribe(std::string topicName, DDSDataReaderListener
      */
     DDS::DataReader *_reader = subscriber->create_datareader(
             topic, DDS_DATAREADER_QOS_DEFAULT, listener,
-            DDS_STATUS_MASK_NONE & ~DDS_DATA_AVAILABLE_STATUS);
+            DDS_STATUS_MASK_ALL);
+//            DDS_STATUS_MASK_NONE & ~DDS_DATA_AVAILABLE_STATUS);
 
     if (NULL == _reader) {
         std::stringstream errss;
