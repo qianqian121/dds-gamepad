@@ -2,7 +2,7 @@
 // Created by smartmachines on 8/1/17.
 //
 
-#include <CommonInfrastructure/SubscriberInterface.h>
+#include <CommonInfrastructure/DDSNodeInterface.h>
 #include <generated/GamePad.h>
 #include <generated/GamePadSupport.h>
 #include <iostream>
@@ -54,7 +54,7 @@ class TwistListener : public Generic_Listener {
     }
 
     void processData(TwistCommands &commands) {
-
+        std::cerr << commands.sampleId << std::endl;
     }
 };
 
@@ -76,11 +76,11 @@ int main(int argc, char *argv[]) {
     // what you need to do to implement an RTI Connext DDS application that
     // writes data.
     TwistListener *listener = new TwistListener();
-    SubscriberInterface fpInterface;
+    DDSNodeInterface fpInterface;
     fpInterface.subscribe<TwistCommands>("twist_raw", listener);
 
     DDS_Duration_t send_period = {0, 100000000};
-
+    NDDSUtility::sleep(send_period);
     while (1) {
         NDDSUtility::sleep(send_period);
     }

@@ -16,7 +16,7 @@
 #include "generated/GamePad.h"
 #include "generated/GamePadSupport.h"
 #include "generated/GamePadPlugin.h"
-#include <CommonInfrastructure/PublisherInterface.h>
+#include <CommonInfrastructure/DDSNodeInterface.h>
 
 using namespace std;
 
@@ -57,15 +57,17 @@ int main(int argc, char *argv[]) {
     // (shared memory or over the network).  Look into this class to see
     // what you need to do to implement an RTI Connext DDS application that
     // writes data.
-    PublisherInterface<TwistCommands> fpInterface("twist_raw");
+    DDSNodeInterface fpInterface;
+    DDS::DataWriter *twist_pub = fpInterface.advertise<TwistCommands>("twist_raw");
 
     DDS_Duration_t send_period = {0, 100000000};
 
     cout << "Sending flight plans over RTI Connext DDS" << endl;
 
     while (1) {
-        // Allocate a flight plan structure
+        // Allocate a twist commands structure
         DdsAutoType<TwistCommands> twist_commands;
+        twist_commands.sampleId = 123;
     //    TwistCommands::DataWriter dataWriter(nullptr);
 
         // Use the current time as a starting point for the expected
@@ -74,10 +76,8 @@ int main(int argc, char *argv[]) {
         fpInterface.GetCommunicator()->GetParticipant()
                 ->get_current_time(time);
 
-        // Write the data to the network.  This is a thin wrapper
-        // around the RTI Connext DDS DataWriter that writes data to
-        // the network.
-        fpInterface.Write(twist_commands);
+        // Write the data to the network.
+        fpInterface.pub<TwistCommands>(twist_pub, twist_commands);
 
         NDDSUtility::sleep(send_period);
     }

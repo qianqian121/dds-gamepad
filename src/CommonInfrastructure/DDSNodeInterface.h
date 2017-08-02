@@ -2,8 +2,8 @@
 // Created by smartmachines on 8/1/17.
 //
 
-#ifndef SUBSCRIBERINTERFACE_H
-#define SUBSCRIBERINTERFACE_H
+#ifndef DDSNODE_INTERFACE_H
+#define DDSNODE_INTERFACE_H
 
 #include <stdio.h>
 #include "ndds/ndds_cpp.h"
@@ -59,7 +59,7 @@ public:
 
 // ------------------------------------------------------------------------- //
 //
-// SubscriberInterface:
+// DDSNodeInterface:
 // A class that sets up the DDS interface (the network interface) of this 
 //  application, including creating appropriate DDS DataWriters, DDS
 // DataReaders, and all other DDS objects.
@@ -69,22 +69,28 @@ public:
 //
 // ------------------------------------------------------------------------- //
 
-class SubscriberInterface
+class DDSNodeInterface
 {
 
 public:
 
     // --- Constructor --- 
-    SubscriberInterface();
+    DDSNodeInterface();
 
     // --- Destructor --- 
-    ~SubscriberInterface();
+    ~DDSNodeInterface();
 
     DDS::Subscriber* GetSubscriber();
+    DDS::Publisher* GetPublisher();
 
     template <typename T>
     void subscribe(std::string topicName, DDSDataReaderListener* listener);
 
+    template <typename T>
+    DDS::DataWriter *advertise(std::string topicName);
+
+    template <typename T>
+    void pub(DDS::DataWriter *writer, DdsAutoType<T> msg_data);
     // --- Getter for Communicator --- 
     // Accessor for the communicator (the class that sets up the basic
     // DDS infrastructure like the DomainParticipant).
@@ -104,7 +110,7 @@ private:
     DDSCommunicator *_communicator;
 };
 
-SubscriberInterface::SubscriberInterface() {
+DDSNodeInterface::DDSNodeInterface() {
     _communicator = new DDSCommunicator();
 
     // Create a DomainParticipant
@@ -124,11 +130,11 @@ SubscriberInterface::SubscriberInterface() {
     }
 }
 
-SubscriberInterface::~SubscriberInterface() {
+DDSNodeInterface::~DDSNodeInterface() {
     delete _communicator;
 }
 
-DDS::Subscriber *SubscriberInterface::GetSubscriber() {
+DDS::Subscriber *DDSNodeInterface::GetSubscriber() {
     DDS::Subscriber *subscriber = _communicator->GetSubscriber();
     if (subscriber == NULL) {
         // Creating a DDS subscriber.
@@ -144,8 +150,29 @@ DDS::Subscriber *SubscriberInterface::GetSubscriber() {
     return subscriber;
 }
 
+DDS::Publisher *DDSNodeInterface::GetPublisher() {
+    DDS::Publisher *pub = _communicator->GetPublisher();
+    if (pub == NULL) {
+        // Create a Publisher
+        // This application only writes data, so we only need to create a
+        // publisher.  The RadarData application has a more complex pattern
+        // so we explicitly separate the writing interface from the overall
+        // network interface - meaning that the publisher is created in the
+        // network interface, and the DataWriter is created in a separate class
+        // Note that one Publisher can be used to create multiple DataWriters
+        pub = _communicator->CreatePublisher();
+
+        if (pub == NULL) {
+            std::stringstream errss;
+            errss << "Failed to create Publisher object";
+            throw errss.str();
+        }
+    }
+    return pub;
+}
+
 template <typename T>
-void SubscriberInterface::subscribe(std::string topicName, DDSDataReaderListener *listener) {
+void DDSNodeInterface::subscribe(std::string topicName, DDSDataReaderListener *listener) {
     DDS::Topic *topic = _communicator->CreateTopic<T>(
             topicName);
 
@@ -166,4 +193,55 @@ void SubscriberInterface::subscribe(std::string topicName, DDSDataReaderListener
     }
 }
 
-#endif //SUBSCRIBERINTERFACE_H
+template <typename T>
+DDS::DataWriter *DDSNodeInterface::advertise(std::string topicName) {
+    // This topic has the name AIRCRAFT_TOPIC - a constant
+    // string that is defined in the .idl file.  (It is not required that
+    // you define your topic name in IDL, but it is a best practice for
+    // ensuring the data interface of an application is all defined in one
+    // place. You can register all topics and types up-front, if you nee
+    DDS::Topic *topic = _communicator->CreateTopic<T>(
+            topicName);
+
+
+    // Create a DataWriter.
+    // This creates a single DataWriter that writes data, with QoS
+    // that is used for State Data.	Note: The string constants with the QoS
+    // library name and the QoS profile name are configured as constants in the
+    // .idl file.  The profiles themselves are configured in the .xml file.
+    DDS::DataWriter *_writer = GetPublisher()->create_datawriter(topic,
+                                     DDS_DATAWRITER_QOS_DEFAULT,
+                                     NULL, DDS_STATUS_MASK_NONE);
+
+    if (_writer == NULL)
+    {
+        std::stringstream errss;
+        errss <<
+              "Failure to create  writer. Inconsistent Qos?";
+        throw errss.str();
+    }
+
+//    return T::DataWriter::narrow(_writer);
+    return _writer;
+}
+
+template <typename T>
+void DDSNodeInterface::pub(DDS::DataWriter *writer, DdsAutoType<T> msg_data) {
+    // Write the data to the network.  This is a thin wrapper
+    // around the RTI Connext DDS DataWriter that writes data to
+    // the network.
+    DDS_ReturnCode_t retcode = DDS_RETCODE_OK;
+    DDS_InstanceHandle_t handle = DDS_HANDLE_NIL;
+
+    retcode = T::DataWriter::narrow(writer)->write(msg_data, handle);
+
+    if (retcode != DDS_RETCODE_OK)
+    {
+        std::stringstream errss;
+        errss <<
+              "Failure to write data";
+        throw errss.str();
+    }
+}
+
+#endif //DDSNODE_INTERFACE_H
